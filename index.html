@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activation Page</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #activation-box {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input {
+            width: 200px;
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="activation-box">
+    <div>
+        <label for="mobile-number">Enter Mobile Number:</label>
+        <input type="text" id="mobile-number" placeholder="09XXXXXXXXX" maxlength="10">
+    </div>
+    <div>
+        <label for="country-code">+94</label>
+    </div>
+    <button onclick="activate()">Activate</button>
+    <div id="activation-result"></div>
+</div>
+
+<script>
+    function activate() {
+        var mobileNumber = document.getElementById("mobile-number").value;
+        var activationResult = document.getElementById("activation-result");
+
+        if (mobileNumber.length === 10 && /^\d+$/.test(mobileNumber)) {
+            // Assume some activation logic here
+            var ipAddress = generateIpAddress();
+            activationResult.innerHTML = "Successfully Activated Ip Address: ";
+        } else {
+            activationResult.innerHTML = "Invalid Mobile Number. Please enter a valid 10-digit number.";
+        }
+    }
+
+    function generateIpAddress() {
+        // Assume some logic to generate IP address
+        return "192.168.0.1";
+    }
+</script>
+
+</body>
+</html>
